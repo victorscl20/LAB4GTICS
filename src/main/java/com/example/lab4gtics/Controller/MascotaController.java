@@ -25,7 +25,7 @@ public class MascotaController {
     public String nuevaMascota(@ModelAttribute("mascota") Mascota mascota, Model model) {
         model.addAttribute("listaMascota", mascotaRepository.findAll());
         model.addAttribute("listaRaza", razaRepository.findAll());
-        return "mascota/form";
+        return "nuevo";
     }
 
     @PostMapping("/save")
@@ -47,7 +47,7 @@ public class MascotaController {
                 model.addAttribute("mascota", mascota);
                 return "mascota/editar";
             } else {
-                return "mascota/form";
+                return "nuevo";
             }
         }
     }
@@ -56,7 +56,7 @@ public class MascotaController {
     @GetMapping("/nuevodueno")
     public String nuevoDueno(Model model) {
 
-        return "mascota/form";
+        return "nuevo";
     }
     @Autowired
 

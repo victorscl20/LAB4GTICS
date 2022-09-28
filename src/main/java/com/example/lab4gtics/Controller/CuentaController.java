@@ -30,7 +30,7 @@ public class CuentaController {
         @GetMapping("/nuevo")
         public String nuevoContactoForm(Model model) {
             //model.addAttribute("listaContacto", cuentaRepository.findAll());
-            return "contacto/newForm";
+            return "contacto/nuevo";
         }
 
         @GetMapping("/editar")
@@ -48,7 +48,7 @@ public class CuentaController {
                 return "redirect:/contacto/lista";
             }
         }
-
+       /*
         @PostMapping("/guardar")
         public String guardarContacto(Cuenta contacto, RedirectAttributes attr, Model model) {
 
@@ -68,10 +68,11 @@ public class CuentaController {
                     model.addAttribute("contacto", contacto);
                     return "contacto/editar";
                 } else {
-                    return "contacto/newForm";
+                    return "nuevo";
                 }
             }
 
         }
+        */
     }
 }
