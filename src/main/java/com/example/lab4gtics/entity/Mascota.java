@@ -24,15 +24,28 @@ public class Mascota {
     @Basic
     @Column(name = "sexo")
     private String sexo;
-    @Basic
+    @ManyToOne
     @Column(name = "raza_especie_idraza")
-    private int razaEspecieIdraza;
+    private RazaEspecie razaEspecie;
     @Basic
     @Column(name = "raza_otros")
     private String razaOtros;
-    @Basic
+    @ManyToOne
     @Column(name = "cuenta_idcuenta")
-    private Integer cuentaIdcuenta;
+    private Cuenta cuentaIdcuenta;
+
+
+    public RazaEspecie getRazaEspecie() {
+        return razaEspecie;
+    }
+
+    public void setRazaEspecie(RazaEspecie razaEspecie) {
+        this.razaEspecie = razaEspecie;
+    }
+
+    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
+        this.cuentaIdcuenta = cuentaIdcuenta;
+    }
 
     public int getIdmascota() {
         return idmascota;
@@ -82,13 +95,6 @@ public class Mascota {
         this.sexo = sexo;
     }
 
-    public int getRazaEspecieIdraza() {
-        return razaEspecieIdraza;
-    }
-
-    public void setRazaEspecieIdraza(int razaEspecieIdraza) {
-        this.razaEspecieIdraza = razaEspecieIdraza;
-    }
 
     public String getRazaOtros() {
         return razaOtros;
@@ -98,24 +104,7 @@ public class Mascota {
         this.razaOtros = razaOtros;
     }
 
-    public Integer getCuentaIdcuenta() {
-        return cuentaIdcuenta;
-    }
 
-    public void setCuentaIdcuenta(Integer cuentaIdcuenta) {
-        this.cuentaIdcuenta = cuentaIdcuenta;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mascota mascota = (Mascota) o;
-        return idmascota == mascota.idmascota && razaEspecieIdraza == mascota.razaEspecieIdraza && Objects.equals(nombre, mascota.nombre) && Objects.equals(anho, mascota.anho) && Objects.equals(historia, mascota.historia) && Objects.equals(observaciones, mascota.observaciones) && Objects.equals(sexo, mascota.sexo) && Objects.equals(razaOtros, mascota.razaOtros) && Objects.equals(cuentaIdcuenta, mascota.cuentaIdcuenta);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idmascota, nombre, anho, historia, observaciones, sexo, razaEspecieIdraza, razaOtros, cuentaIdcuenta);
-    }
 }
