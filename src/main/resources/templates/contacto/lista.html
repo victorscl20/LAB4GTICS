@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <h1>Lista de Contactos en Candy&Crash</h1>
-    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/contacto/new'}">Nuevo Contacto</a>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/cuenta/nuevo'}">Nuevo Contacto</a>
     <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Pagina Principal</a>
     <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
     <table class="table">
@@ -23,18 +23,20 @@
             <th>Correo</th>
             <th>Dirección</th>
             <th>Telefono</th>
+            <th>Número de Mascotas</th>
             <th>Mascotas</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cuenta, info : ${listaContacto}">
+        <tr th:each="cuentadto, info : ${listaCuenta}">
             <td th:text="${info.index + 1}"></td>
-            <td th:text="${cuenta.correo}"></td>
-            <td th:text="${cuenta.direccion}"></td>
-            <td th:text="${cuenta.telefono}"></td>
-            <td><a class="btn btn-primary" th:href="@{'/contacto/editar' + '?id=' + ${cuenta.id}}">Editar</a>
+            <td th:text="${cuentadto.correo}"></td>
+            <td th:text="${cuentadto.direccion}"></td>
+            <td th:text="${cuentadto.telefono}"></td>
+            <td th:text="${cuentadto.numero}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/cuenta/editar' + '?id=' + ${cuentadto.id}}">Editar</a>
             </td>
             <td><a class="btn btn-danger" th:href="@{'/mascota/lista'}">Ver mas</a>
             </td>
