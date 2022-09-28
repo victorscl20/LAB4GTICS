@@ -73,6 +73,11 @@ public class CuentaController {
             }
 
         }
+        @GetMapping("/vermas")
+        public String verMas(@RequestParam("id") int id, Model model) {
+
+            return "contacto/mascotascuenta";
+        }
 
     }
 }

@@ -12,4 +12,7 @@ public interface CuentaRepository  extends JpaRepository<Cuenta, Integer> {
             "left join mascota m on m.cuenta_idcuenta = c.idcuenta\n" +
             "group by c.idcuenta;")
     List<CuentasDto> listaCuenta ();
+
+    @Query(nativeQuery = true, value = "select * from mascota where cuenta_idcuenta=?1;")
+    List<CuentasDto> listaMascotas (int id);
 }
