@@ -12,7 +12,7 @@
         <h2 th:text="${mascota.idmascota == 0? 'Nueva Mascota' : 'Editar Mascota'}">Nueva Mascota</h2>
         <hr/>
 
-        <form method="post" th:action="@{/mascota/save}" th:object="${mascota}">
+        <form method="post" th:action="@{/mascota/guardar}" th:object="${mascota}">
             <input th:if="*{idmascota != 0 }" type="hidden" th:field="*{idmascota}" />
             <div class="form-row">
                 <div class="col-md-8 mb-4">
@@ -51,7 +51,7 @@
                 <div class="col-md-8 mb-4">
                     <div class="mb-3">
                         <label class="form-label">Raza</label>
-                        <select class="form-control" th:field="*{raza_especie.idraza}">
+                        <select class="form-control" th:field="*{razaEspecie.idraza}">
                             <option th:each="raza : ${listaRaza}" th:value="${raza.idraza}"
                                     th:text="${raza.descripcion}"></option>
                         </select>
