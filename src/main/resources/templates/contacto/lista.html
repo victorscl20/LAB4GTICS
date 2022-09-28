@@ -36,9 +36,9 @@
             <td th:text="${cuentadto.direccion}"></td>
             <td th:text="${cuentadto.telefono}"></td>
             <td th:text="${cuentadto.numero}"></td>
-            <td><a class="btn btn-primary" th:href="@{'/cuenta/editar' + '?id=' + ${cuentadto.id}}">Editar</a>
+            <td><a class="btn btn-primary" th:href="@{'/cuenta/editar' + '?id=' + ${cuentadto.idcuenta}}">Editar</a>
             </td>
-            <td><a class="btn btn-danger" th:href="@{'/mascota/lista'}">Ver mas</a>
+            <td><a class="btn btn-danger" th:href="@{'/mascota/lista' + '?id=' + ${cuentadto.idcuenta}}">Ver mas</a>
             </td>
         </tr>
         </tbody>

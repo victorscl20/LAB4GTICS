@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CuentaRepository  extends JpaRepository<Cuenta, Integer> {
-    @Query(nativeQuery = true, value = "select c.correo, c.direccion,c.telefono,count(idmascota) as 'numero' from cuenta c\n" +
+    @Query(nativeQuery = true, value = "select c.idcuenta, c.correo, c.direccion,c.telefono,count(idmascota) as 'numero' from cuenta c\n" +
             "left join mascota m on m.cuenta_idcuenta = c.idcuenta\n" +
             "group by c.idcuenta;")
     List<CuentasDto> listaCuenta ();
