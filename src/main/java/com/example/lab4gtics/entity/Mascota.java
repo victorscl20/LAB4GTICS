@@ -25,13 +25,13 @@ public class Mascota {
     @Column(name = "sexo")
     private String sexo;
     @ManyToOne
-    @Column(name = "raza_especie_idraza")
+    @JoinColumn(name = "raza_especie_idraza")
     private RazaEspecie razaEspecie;
     @Basic
     @Column(name = "raza_otros")
     private String razaOtros;
     @ManyToOne
-    @Column(name = "cuenta_idcuenta")
+    @JoinColumn(name = "cuenta_idcuenta")
     private Cuenta cuentaIdcuenta;
 
 
