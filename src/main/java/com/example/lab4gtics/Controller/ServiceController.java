@@ -1,4 +1,4 @@
-package com.example.lab4gtics.Controller;
+package com.example.lab4gtics.controller;
 
 import com.example.lab4gtics.Repository.OpcionServicioRepository;
 import com.example.lab4gtics.Repository.ServicioRepository;
