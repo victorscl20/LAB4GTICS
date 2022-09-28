@@ -11,12 +11,12 @@ public class Servicio {
     @Id
     @Column(name = "idservicio")
     private int idservicio;
-    @Basic
-    @Column(name = "mascota_idmascota")
-    private int mascotaIdmascota;
-    @Basic
-    @Column(name = "cuenta_idcuenta")
-    private int cuentaIdcuenta;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "mascota_idmascota", nullable = false)
+    private Mascota mascotaIdmascota;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "cuenta_idcuenta", nullable = false)
+    private Cuenta cuentaIdcuenta;
     @Basic
     @Column(name = "hora_inicio")
     private Timestamp horaInicio;
@@ -26,9 +26,9 @@ public class Servicio {
     @Basic
     @Column(name = "entrega")
     private Object entrega;
-    @Basic
-    @Column(name = "responsable_idresponsable")
-    private int responsableIdresponsable;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "responsable_idresponsable", nullable = false)
+    private Responsable responsableIdresponsable;
 
     public int getIdservicio() {
         return idservicio;
@@ -38,19 +38,19 @@ public class Servicio {
         this.idservicio = idservicio;
     }
 
-    public int getMascotaIdmascota() {
+    public Mascota getMascotaIdmascota() {
         return mascotaIdmascota;
     }
 
-    public void setMascotaIdmascota(int mascotaIdmascota) {
+    public void setMascotaIdmascota(Mascota mascotaIdmascota) {
         this.mascotaIdmascota = mascotaIdmascota;
     }
 
-    public int getCuentaIdcuenta() {
+    public Cuenta getCuentaIdcuenta() {
         return cuentaIdcuenta;
     }
 
-    public void setCuentaIdcuenta(int cuentaIdcuenta) {
+    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
         this.cuentaIdcuenta = cuentaIdcuenta;
     }
 
@@ -78,11 +78,11 @@ public class Servicio {
         this.entrega = entrega;
     }
 
-    public int getResponsableIdresponsable() {
+    public Responsable getResponsableIdresponsable() {
         return responsableIdresponsable;
     }
 
-    public void setResponsableIdresponsable(int responsableIdresponsable) {
+    public void setResponsableIdresponsable(Responsable responsableIdresponsable) {
         this.responsableIdresponsable = responsableIdresponsable;
     }
 
