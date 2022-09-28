@@ -25,9 +25,12 @@ public class ServiceController {
     public String listarServicios(Model model) {
         List<Servicio> lista = servicioRepository.findAll();
         model.addAttribute("servicioLista", lista);
-        model.addAttribute("listaOpServ", opcionServicioRepository.findAll());
+        model.addAttribute("opcionesLista", opcionServicioRepository.findAll());
         return "servicio/lista";
     }
+
+
+
 
 
 

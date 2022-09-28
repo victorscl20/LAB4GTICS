@@ -52,19 +52,19 @@ public class CuentaController {
         @PostMapping("/guardar")
         public String guardarContacto(Cuenta contacto, RedirectAttributes attr, Model model) {
 
-            if (contacto.getId() == 0) {
+            if (contacto.getIdcuenta()==0) {
                 attr.addFlashAttribute("msg", "Contacto creado exitosamente");
             } else {
                 attr.addFlashAttribute("msg", "Contacto actualizado exitosamente");
             }
 
-            if (contacto.getId() != null) {
+            if (contacto.getIdcuenta()!=0) {
                 cuentaRepository.save(contacto);
                 return "redirect:/mascota/lista";
             } else {
                 model.addAttribute("errProd", "Error al guardar contacto");
                 model.addAttribute("listaCuenta", cuentaRepository.findAll());
-                if (contacto.getId() != 0) {
+                if (contacto.getIdcuenta() != 0) {
                     model.addAttribute("contacto", contacto);
                     return "contacto/editar";
                 } else {
