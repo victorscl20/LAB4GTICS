@@ -48,7 +48,7 @@ public class CuentaController {
                 return "redirect:/contacto/lista";
             }
         }
-       /*
+
         @PostMapping("/guardar")
         public String guardarContacto(Cuenta contacto, RedirectAttributes attr, Model model) {
 
@@ -73,6 +73,6 @@ public class CuentaController {
             }
 
         }
-        */
+
     }
 }
