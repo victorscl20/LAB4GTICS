@@ -10,12 +10,14 @@ public class OpcionServicio {
     @Id
     @Column(name = "idopcion_servicio")
     private int idopcionServicio;
-    @Basic
-    @Column(name = "opcion_idopcion")
-    private int opcionIdopcion;
-    @Basic
-    @Column(name = "servicio_idservicio")
-    private int servicioIdservicio;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "opcion_idopcion", nullable = false)
+    private Opcion opcionIdopcion;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "servicio_idservicio", nullable = false)
+    private Servicio servicioIdservicio;
 
     public int getIdopcionServicio() {
         return idopcionServicio;
@@ -25,19 +27,19 @@ public class OpcionServicio {
         this.idopcionServicio = idopcionServicio;
     }
 
-    public int getOpcionIdopcion() {
+    public Opcion getOpcionIdopcion() {
         return opcionIdopcion;
     }
 
-    public void setOpcionIdopcion(int opcionIdopcion) {
+    public void setOpcionIdopcion(Opcion opcionIdopcion) {
         this.opcionIdopcion = opcionIdopcion;
     }
 
-    public int getServicioIdservicio() {
+    public Servicio getServicioIdservicio() {
         return servicioIdservicio;
     }
 
-    public void setServicioIdservicio(int servicioIdservicio) {
+    public void setServicioIdservicio(Servicio servicioIdservicio) {
         this.servicioIdservicio = servicioIdservicio;
     }
 
