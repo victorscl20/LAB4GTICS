@@ -47,6 +47,10 @@ public class Mascota {
         this.cuentaIdcuenta = cuentaIdcuenta;
     }
 
+    public Cuenta getCuentaIdcuenta() {
+        return cuentaIdcuenta;
+    }
+
     public int getIdmascota() {
         return idmascota;
     }
