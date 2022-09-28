@@ -29,7 +29,7 @@
                 <th>Entrega</th>
                 <th></th>
             </tr>
-            <tr th:each="opserv,i : ${listaOpServ}">
+            <tr th:each="op,i : ${opcionesLista}">
                 <td th:text="${i.index + 1}"></td>
                 <td th:text="${opserv.idopcion.descripcion}"></td>
                 <td th:text="${opserv.idservicio.idmascota.nombre}"></td>
@@ -39,7 +39,7 @@
                 <td th:text="${opserv.idservicio.idresponsable.nombre}"></td>
                 <td th:text="${opserv.idservicio.entrega}"></td>
                 <td>
-                    <a class="btn btn-success" th:href="@{'/servicio/editar?id=' + ${opserv.id}}">Editar
+                    <a class="btn btn-success" th:href="@{'/servicio/editar?id=' + ${op.id}}">Editar
                     </a>
                 </td>
             </tr>
