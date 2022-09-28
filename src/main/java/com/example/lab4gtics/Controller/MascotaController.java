@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/mascota")
 public class MascotaController {
@@ -23,12 +25,12 @@ public class MascotaController {
     RazaRepository razaRepository;
     @GetMapping("/nuevamascota")
     public String nuevaMascota(@ModelAttribute("mascota") Mascota mascota, Model model) {
-        model.addAttribute("listaMascota", mascotaRepository.findAll());
         model.addAttribute("listaRaza", razaRepository.findAll());
-        return "nuevo";
+        model.addAttribute("listaMascota", mascotaRepository.findAll());
+        return "mascota/form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/guardar")
     public String guardarMascota(Mascota mascota, RedirectAttributes redirectAttributes, Model model){
         if (mascota.getIdmascota()==0) {
             redirectAttributes.addFlashAttribute("msg", "Mascota creada exitosamente");
@@ -47,16 +49,34 @@ public class MascotaController {
                 model.addAttribute("mascota", mascota);
                 return "mascota/editar";
             } else {
-                return "nuevo";
+                return "mascota/form";
             }
         }
     }
+
+    @GetMapping("/editar")
+    public String editarMascota(@ModelAttribute("mascota") Mascota mascota,
+                                @RequestParam("id") int id,
+                                Model model) {
+        Optional<Mascota> optionalMascota = mascotaRepository.findById(id);
+        System.out.println(id);
+        if (optionalMascota.isPresent()) {
+            mascota = optionalMascota.get();
+            model.addAttribute("mascota", mascota);
+            model.addAttribute("listaMascota", mascotaRepository.findAll());
+            model.addAttribute("listaRaza", razaRepository.findAll());
+            return "/mascota/editar";
+        } else {
+            return "redirect:/mascota/lista";
+        }
+    }
+
 
 
     @GetMapping("/nuevodueno")
     public String nuevoDueno(Model model) {
 
-        return "nuevo";
+        return "mascota/form";
     }
     @Autowired
 

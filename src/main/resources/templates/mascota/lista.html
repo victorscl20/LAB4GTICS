@@ -59,7 +59,7 @@
                         <td th:text="${mascota.nombre}"></td>
                         <td th:text="${mascota.anho}"></td>
                         <td th:text="${mascota.sexo}"></td>
-                        <td th:text="${mascota.getRaza_especie().getDescripcion()}"></td>
+                        <td th:text="${mascota.getRazaEspecie().getDescripcion()}"></td>
                         <td><a class="btn btn-info" th:href="@{'/mascota/servicioinfo' + '?id=' + ${mascota.idmascota}}">Detalle de servicios</a>
                         </td>
                         <td><a class="btn btn-primary" th:href="@{'/mascota/editar' + '?id=' + ${mascota.idmascota}}">Editar</a>
