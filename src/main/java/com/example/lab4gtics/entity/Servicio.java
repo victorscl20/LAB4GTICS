@@ -1,0 +1,101 @@
+package com.example.lab4gtics.entity;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Objects;
+
+@Entity
+@Table(name = "servicio", schema = "sandylance", catalog = "")
+public class Servicio {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "idservicio")
+    private int idservicio;
+    @Basic
+    @Column(name = "mascota_idmascota")
+    private int mascotaIdmascota;
+    @Basic
+    @Column(name = "cuenta_idcuenta")
+    private int cuentaIdcuenta;
+    @Basic
+    @Column(name = "hora_inicio")
+    private Timestamp horaInicio;
+    @Basic
+    @Column(name = "duracion")
+    private int duracion;
+    @Basic
+    @Column(name = "entrega")
+    private Object entrega;
+    @Basic
+    @Column(name = "responsable_idresponsable")
+    private int responsableIdresponsable;
+
+    public int getIdservicio() {
+        return idservicio;
+    }
+
+    public void setIdservicio(int idservicio) {
+        this.idservicio = idservicio;
+    }
+
+    public int getMascotaIdmascota() {
+        return mascotaIdmascota;
+    }
+
+    public void setMascotaIdmascota(int mascotaIdmascota) {
+        this.mascotaIdmascota = mascotaIdmascota;
+    }
+
+    public int getCuentaIdcuenta() {
+        return cuentaIdcuenta;
+    }
+
+    public void setCuentaIdcuenta(int cuentaIdcuenta) {
+        this.cuentaIdcuenta = cuentaIdcuenta;
+    }
+
+    public Timestamp getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Timestamp horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public Object getEntrega() {
+        return entrega;
+    }
+
+    public void setEntrega(Object entrega) {
+        this.entrega = entrega;
+    }
+
+    public int getResponsableIdresponsable() {
+        return responsableIdresponsable;
+    }
+
+    public void setResponsableIdresponsable(int responsableIdresponsable) {
+        this.responsableIdresponsable = responsableIdresponsable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Servicio that = (Servicio) o;
+        return idservicio == that.idservicio && mascotaIdmascota == that.mascotaIdmascota && cuentaIdcuenta == that.cuentaIdcuenta && duracion == that.duracion && responsableIdresponsable == that.responsableIdresponsable && Objects.equals(horaInicio, that.horaInicio) && Objects.equals(entrega, that.entrega);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idservicio, mascotaIdmascota, cuentaIdcuenta, horaInicio, duracion, entrega, responsableIdresponsable);
+    }
+}
