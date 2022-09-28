@@ -1,5 +1,6 @@
 package com.example.lab4gtics.Controller;
 
+import com.example.lab4gtics.Repository.OpcionServicioRepository;
 import com.example.lab4gtics.Repository.ServicioRepository;
 import com.example.lab4gtics.entity.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,15 @@ public class ServiceController {
 
     @Autowired
     ServicioRepository servicioRepository;
+    @Autowired
+    OpcionServicioRepository opcionServicioRepository;
 
 
     @GetMapping(value = {"/listaservicios", ""})
     public String listarServicios(Model model) {
         List<Servicio> lista = servicioRepository.findAll();
         model.addAttribute("servicioLista", lista);
-        //model.addAttribute("listaOpServ", opcionServicioRepository.findAll());
+        model.addAttribute("listaOpServ", opcionServicioRepository.findAll());
         return "servicio/lista";
     }
 
