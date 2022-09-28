@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Mascota {
     @Autowired
     MascotaRepository mascotaRepository;
-    @GetMapping(value = { "/", "lista"})
+    @GetMapping(value = { "/", "/lista"})
     public String listarMascotas(Model model) {
         model.addAttribute("listaMascota", mascotaRepository.findAll());
         return "mascota/lista";
