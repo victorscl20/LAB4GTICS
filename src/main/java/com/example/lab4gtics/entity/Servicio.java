@@ -25,7 +25,7 @@ public class Servicio {
     private int duracion;
     @Basic
     @Column(name = "entrega")
-    private Object entrega;
+    private String entrega;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "responsable_idresponsable", nullable = false)
     private Responsable responsableIdresponsable;
@@ -74,7 +74,7 @@ public class Servicio {
         return entrega;
     }
 
-    public void setEntrega(Object entrega) {
+    public void setEntrega(String entrega) {
         this.entrega = entrega;
     }
 

@@ -78,11 +78,8 @@ public class MascotaController {
 
         return "mascota/form";
     }
-    @Autowired
 
 
-    @GetMapping("/servicioinfo")
-    public String servicioInfo(Model model){
-        return "mascota/listaservmasc";
-    }
+
+
 }
